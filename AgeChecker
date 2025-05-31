@@ -1,0 +1,36 @@
+Module AgeCheckerWithLoop
+
+    Sub Main()
+        Dim repeatCheck As String
+
+        Do
+            Console.Clear()
+            Console.WriteLine("=== Age Checker ===")
+
+            Console.Write("Enter your birth year: ")
+            Dim birthYear As Integer
+            If Integer.TryParse(Console.ReadLine(), birthYear) Then
+                Dim currentYear As Integer = DateTime.Now.Year
+                Dim age As Integer = currentYear - birthYear
+
+                Console.WriteLine("You are " & age & " years old.")
+
+                If age >= 18 Then
+                    Console.WriteLine("You are an adult.")
+                Else
+                    Console.WriteLine("You are a minor.")
+                End If
+            Else
+                Console.WriteLine("Invalid input. Please enter a valid year.")
+            End If
+
+            Console.WriteLine()
+            Console.Write("Do you want to check another age? (yes/no): ")
+            repeatCheck = Console.ReadLine().ToLower()
+        Loop While repeatCheck = "yes"
+
+        Console.WriteLine("Thank you for using the Age Checker!")
+        Console.ReadKey()
+    End Sub
+
+End Module
